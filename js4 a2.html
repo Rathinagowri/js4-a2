@@ -1,0 +1,34 @@
+<html>
+<script>
+var Person = function(firstName,lastName,age) {
+  this.firstName = firstName;
+this.lastName = lastName;
+this.age=age;
+};
+
+Person.prototype.display = function(){
+  document.write("firstName:"+ this.firstName+"</br>" +"lastName:"+this.lastName +"</br>" +"age:" +this.age +"</br>");
+};
+
+function Student(firstName, lastName, age, branch) {
+  
+  Person.call(this, firstName, lastName, age);
+
+    this.branch = branch;
+}
+
+
+Student.prototype = Object.create(Person.prototype); 
+
+Student.prototype.display = function(){
+  document.write("</br>"+"firstName:"+ this.firstName+"</br>" + "lastName:"+this.lastName +"</br>"+"age:" +this.age +"</br>" +"branch:" +this.branch);
+};
+var person1 = new Person( "Peter","John",45);
+var student1 = new Student("Sri","Ram",40,"Computer Science");
+person1.display();
+student1.display();   
+</script>
+</html>
+
+
+
